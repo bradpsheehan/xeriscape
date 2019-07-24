@@ -1,0 +1,7 @@
+<%= javascript_tag do %>
+  var gardenConfig = function() {
+    return <%= { garden: @garden}.to_json.html_safe %>
+  }
+<% end %>
+
+<%= javascript_pack_tag 'Garden' %>

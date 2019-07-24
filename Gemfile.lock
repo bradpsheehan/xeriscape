@@ -24,6 +24,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.10)
+      actionpack (>= 4.1, < 6.1)
+      activemodel (>= 4.1, < 6.1)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.2.3)
       activesupport (= 5.2.3)
       globalid (>= 0.3.6)
@@ -42,12 +47,29 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
     bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
+    capybara (3.12.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
+    capybara-screenshot (1.0.22)
+      capybara (>= 1.0, < 4)
+      launchy
+    case_transform (0.2)
+      activesupport
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -57,6 +79,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     diff-lcs (1.3)
     erubi (1.8.0)
     execjs (2.7.0)
@@ -67,6 +90,9 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jsonapi-renderer (0.2.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -88,8 +114,11 @@ GEM
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
+    public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.7)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -105,6 +134,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.3)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -120,6 +153,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    regexp_parser (1.3.0)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
@@ -137,7 +171,10 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
+    rspec_junit_formatter (0.4.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
+    rubyzip (1.2.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -149,6 +186,11 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.141.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2, >= 1.2.2)
+    shoulda-matchers (4.0.0.rc1)
+      activesupport (>= 4.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -175,30 +217,45 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (4.0.7)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   bootsnap (>= 1.1.0)
   byebug
+  capybara
+  capybara-screenshot
   coffee-rails (~> 4.2)
+  database_cleaner
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rails-controller-testing
   rspec-rails
+  rspec_junit_formatter
   sass-rails (~> 5.0)
+  selenium-webdriver
+  shoulda-matchers (= 4.0.0.rc1)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker (~> 4.0, >= 4.0.7)
 
 RUBY VERSION
    ruby 2.6.0p0

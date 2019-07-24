@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Prerequisites
+ruby: `2.6.0` install using your ruby manager of choice 
+yarn: `brew install yarn`
 
-Things you may want to cover:
+### Setup
+Install gems: `bundle install`
 
-* Ruby version
+Initialize NodeJS modules: `yarn install`
 
-* System dependencies
+Initialize postgres: `docker-compose up`
 
-* Configuration
+Initialize database: `bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails db:seed`
 
-* Database creation
+Start rails server: `rails s`
 
-* Database initialization
+Start webpack dev server: `./bin/webpack-dev-server`
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### TODOs
+Add more specs
 
-* Deployment instructions
+Add sorting (other than the default alpha sort)
 
-* ...
+Add CSV download
