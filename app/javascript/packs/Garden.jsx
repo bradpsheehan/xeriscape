@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const garden = window.gardenConfig().garden
   ReactDOM.render(
     <Garden garden={garden}/>,
-    document.body.appendChild(document.createElement('div'))
+    document.body.appendChild(document.getElementById('garden'))
   );
 });

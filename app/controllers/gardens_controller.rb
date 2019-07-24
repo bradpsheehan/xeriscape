@@ -1,4 +1,8 @@
 class GardensController < ApplicationController
+  def index
+    @gardens = Garden.all
+  end
+
   def show
     @garden = GardenSerializer.new(Garden.find(params[:id]))
   end
