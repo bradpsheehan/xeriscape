@@ -45,6 +45,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'factory_bot'
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'capybara'
