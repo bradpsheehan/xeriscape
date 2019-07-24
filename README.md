@@ -21,7 +21,7 @@ Start webpack dev server: `./bin/webpack-dev-server`
 
 
 ### TODOs
-Add more specs
+Add more specs (including front end `jest` specs)
 
 Features to consider:
 
