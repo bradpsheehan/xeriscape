@@ -6,10 +6,6 @@ export function Garden(props) {
   const [updateComponent, setUpdateComponent] = useState(false)
   const [rootLengths, setRootLengths] = useState(props.garden.plant_root_lengths)
 
-  useEffect(() => {
-    console.log(plants)
-  })
-
   function handleWatering(event) {
     axios.post(`/api/v1/irrigations`, { plant_id: event.currentTarget.childNodes[0].value }).then((response) => {
       let response_data = response.data.data
