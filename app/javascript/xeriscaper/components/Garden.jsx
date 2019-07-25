@@ -3,21 +3,19 @@ import axios from 'axios'
 
 export function Garden(props) {
   const [plants, setPlants] = useState(props.garden.plants)
-  const [updateComponent, setUpdateComponent] = useState(false)
   const [rootLengths, setRootLengths] = useState(props.garden.plant_root_lengths)
 
   function handleWatering(event) {
     axios.post(`/api/v1/irrigations`, { plant_id: event.currentTarget.childNodes[0].value }).then((response) => {
       let response_data = response.data.data
       console.log(response_data)
-      let newRootLengths = rootLengths
+      let newRootLengths = {...rootLengths}
       newRootLengths[response_data.irrigation.plant_id] = {
         root_length: response_data.plant_root_length,
         status: response_data.plant_status
       }
       console.log(newRootLengths)
       setRootLengths(newRootLengths)
-      setUpdateComponent(!updateComponent)
     })
 
     event.preventDefault()
