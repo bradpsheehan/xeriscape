@@ -32,7 +32,7 @@ export function Garden(props) {
         </ul>
         <form action="post" onSubmit={handleWatering}>
           <input type="hidden" name="plant_id" value={plant.id}/>
-          <button>Water Plant</button>
+          <button data-role={`water_plant_${plant.id}`}>Water Plant</button>
         </form>
         <hr/>
       </div>

@@ -3,10 +3,11 @@ describe('My First Test', function() {
     cy.visit('http://localhost:3000/gardens/3')
     cy.get('[data-role=garden_name]')
 
-    cy.get(`[data-role=plant_${6}_status]`).should('contain', 'dead')
-    cy.get(`[data-role=plant_${6}_root_length]`).should('contain', '24"')
+    cy.get(`[data-role=plant_${7}_status]`).should('contain', 'dead')
+    cy.get(`[data-role=plant_${7}_root_length]`).should('contain', '22"')
 
-    // click water plant
+    cy.get(`[data-role=water_plant_${7}]`).click()
+
     // expect those attrs to contain updated data
 
   })
