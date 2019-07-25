@@ -27,8 +27,8 @@ export function Garden(props) {
         <h4>{plant.name}</h4>
         <h5>{plant.description}</h5>
         <ul>
-          <li><strong>Status: </strong>{rootLengths[plant.id].status}</li>
-          <li><strong>Root Length: </strong>{rootLengths[plant.id].root_length}"</li>
+          <li><strong>Status: </strong><span data-role={`plant_${plant.id}_status`}>{rootLengths[plant.id].status}</span></li>
+          <li><strong>Root Length: </strong><span data-role={`plant_${plant.id}_root_length`}>{rootLengths[plant.id].root_length}"</span></li>
         </ul>
         <form action="post" onSubmit={handleWatering}>
           <input type="hidden" name="plant_id" value={plant.id}/>
@@ -41,7 +41,7 @@ export function Garden(props) {
 
   return (
     <div>
-      <h1>{ props.garden.name }</h1>
+      <h1 data-role="garden_name">{ props.garden.name }</h1>
       <h3>Plant Count: { props.garden.plants.length }</h3>
 
       <hr/>
