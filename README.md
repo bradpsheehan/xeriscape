@@ -22,7 +22,15 @@ Start webpack dev server: `./bin/webpack-dev-server`
 ### Run the Tests
 `bundle exec rspec`
 
+`yarn run cypress open`
+
 ### KNOWN ISSUES
+##### [UPDATE]
+
+Fixed by removing turbolinks.
+
+##### [ISSUE]
+
 Garden show page react component doesn't attach to the DOM on initial page load when coming from the garden index page. If you navigate from root to a garden show page you have to refresh the page for the component to attach to the DOM. If you type a garden path straight into the url then the show page loads just fine. Assumption is that the `DOMContentLoaded` event is not being fired when coming from the link on the garden index.
 
 ### TODOs
